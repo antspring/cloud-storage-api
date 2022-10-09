@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class UserRepository implements Contracts\UserContract
+class UserRepository implements Interfaces\UserInterface
 {
     public function create(array $userData)
     {

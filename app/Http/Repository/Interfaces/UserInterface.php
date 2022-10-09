@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Repository\Contracts;
+namespace App\Http\Repository\Interfaces;
 
-interface UserContract
+interface UserInterface
 {
     public function create(array $userData);
 
