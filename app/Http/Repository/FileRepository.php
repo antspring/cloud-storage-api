@@ -27,4 +27,16 @@ class FileRepository implements Interfaces\FileInterface
     {
         $file->delete();
     }
+
+    /**
+     * Update File
+
+     * @param File $file
+     * @param string $name
+     * @return void
+     */
+    public function update(File $file, string $name): void
+    {
+        $file->update(['name' => $name]);
+    }
 }

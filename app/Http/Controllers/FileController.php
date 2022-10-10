@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateFileRequest;
 use App\Http\Requests\DeleteFileRequest;
 use App\Http\Requests\DownloadFileRequest;
+use App\Http\Requests\RenameFileRequest;
 use App\Http\Resources\FolderResource;
 use App\Models\Folder;
 use App\Services\FileService;
@@ -54,10 +55,29 @@ class FileController extends Controller
         return response()->download($path, basename($path));
     }
 
+    /**
+     * Delete file
+
+     * @param DeleteFileRequest $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function deleteFile(DeleteFileRequest $request)
     {
         $this->service->delete($request);
 
         return response(['message' => 'File deleted']);
+    }
+
+    /**
+     * Rename file
+
+     * @param RenameFileRequest $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function renameFile(RenameFileRequest $request)
+    {
+        $this->service->rename($request);
+
+        return response(['message' => 'File renamed']);
     }
 }

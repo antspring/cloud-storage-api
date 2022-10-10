@@ -67,6 +67,24 @@ class FileService
     }
 
     /**
+     * Rename file
+
+     * @return void
+     */
+    public function rename(Request $request): void
+    {
+        $folder = $this->findFolder($request);
+
+        $file = $folder->findFile($request->file_name);
+
+        $path = FolderService::configurationFolderName($file->name, $folder->name);
+
+        Storage::move($path, $folder->name . '/' . $request->new_file_name);
+
+        $this->repository->update($file, $request->new_file_name);
+    }
+
+    /**
      * Search folder
 
      * @param Request $request
