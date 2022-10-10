@@ -22,7 +22,7 @@ class FileService
     {
         $folder = $this->findFolder($request);
 
-        $filePath = $request->file('file')->store($folder->name);
+        $filePath = $request->file('file')->storeAs($folder->name, $request->file('file')->getClientOriginalName());
 
         $this->repository->create($this->configurationFileData(basename($filePath), $folder->id));
     }
