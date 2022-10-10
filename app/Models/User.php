@@ -42,9 +42,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Folder::class);
     }
-
-    public function dada($dada)
-    {
-        return $dada;
-    }
 }
