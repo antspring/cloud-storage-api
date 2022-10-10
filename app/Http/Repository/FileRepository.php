@@ -16,4 +16,9 @@ class FileRepository implements Interfaces\FileInterface
     {
         File::create($data);
     }
+
+    public function delete(File $file): void
+    {
+        $file->delete();
+    }
 }

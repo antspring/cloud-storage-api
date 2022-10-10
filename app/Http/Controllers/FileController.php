@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateFileRequest;
+use App\Http\Requests\DeleteFileRequest;
 use App\Http\Requests\DownloadFileRequest;
 use App\Http\Resources\FolderResource;
 use App\Models\Folder;
@@ -50,8 +51,13 @@ class FileController extends Controller
     {
         $path = $this->service->download($request);
 
-        $path = Storage::disk('local')->path($path);
-
         return response()->download($path, basename($path));
+    }
+
+    public function deleteFile(DeleteFileRequest $request)
+    {
+        $this->service->delete($request);
+
+        return response(['message' => 'File deleted']);
     }
 }

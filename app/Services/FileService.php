@@ -6,6 +6,7 @@ use App\Http\Repository\Interfaces\FileInterface;
 use App\Models\File;
 use App\Models\Folder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use function PHPUnit\Framework\isEmpty;
 
 class FileService
@@ -41,7 +42,20 @@ class FileService
 
         $path = FolderService::configurationFolderName($file->name, $folder->name);
 
-        return $path;
+        return Storage::disk('local')->path($path);
+    }
+
+    public function delete(Request $request): void
+    {
+        $folder = $this->findFolder($request);
+
+        $file = $folder->findFile($request->file_name);
+
+        $path = FolderService::configurationFolderName($file->name, $folder->name);
+
+        Storage::disk('local')->delete($path);
+
+        $this->repository->delete($file);
     }
 
     /**
