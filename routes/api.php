@@ -20,4 +20,6 @@ Route::middleware('auth:sanctum')->group(function (){
     Route::post('/create-folder', [FolderController::class, 'createFolder']);
 
     Route::post('/save-file', [FileController::class, 'createFile']);
+
+    Route::get('/files-list', [FileController::class, 'fileList']);
 });

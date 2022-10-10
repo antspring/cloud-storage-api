@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateFileRequest;
+use App\Http\Resources\FolderResource;
 use App\Services\FileService;
+use Illuminate\Http\Request;
 
 class FileController extends Controller
 {
@@ -20,5 +22,16 @@ class FileController extends Controller
         $this->service->create($request);
 
         return response(['message' => 'File uploaded']);
+    }
+
+    /**
+     * Get all user files
+
+     * @param Request $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function fileList(Request $request)
+    {
+        return FolderResource::collection($request->user()->folders);
     }
 }
