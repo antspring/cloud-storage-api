@@ -24,7 +24,24 @@ class FileService
 
         $filePath = $request->file('file')->store($folder->name);
 
-        $this->repository->create($this->configurationFileData(pathinfo($filePath)['basename'], $folder->id));
+        $this->repository->create($this->configurationFileData(basename($filePath), $folder->id));
+    }
+
+    /**
+     * Search folder and file
+
+     * @param Request $request
+     * @return string
+     */
+    public function download(Request $request): string
+    {
+        $folder = $this->findFolder($request);
+
+        $file = $folder->findFile($request->file_name);
+
+        $path = FolderService::configurationFolderName($file->name, $folder->name);
+
+        return $path;
     }
 
     /**

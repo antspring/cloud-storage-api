@@ -18,4 +18,9 @@ class Folder extends Model
     {
         return $this->hasMany(File::class);
     }
+
+    public function findFile(string $fileName)
+    {
+        return $this->files()->where('name', $fileName)->firstOrFail();
+    }
 }
