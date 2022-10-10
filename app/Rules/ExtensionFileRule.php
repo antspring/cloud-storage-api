@@ -12,7 +12,7 @@ class ExtensionFileRule implements Rule
 
     public function passes($attribute, $value): bool
     {
-        return $value->extension() !== 'php';
+        return $value->getMimeType() !== 'text/x-php';
     }
 
     public function message(): string

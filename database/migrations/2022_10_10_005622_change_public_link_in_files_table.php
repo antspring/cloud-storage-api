@@ -15,7 +15,6 @@ return new class extends Migration {
     public function down()
     {
         Schema::table('files', function (Blueprint $table) {
-            $table->string('public_link')->nullable(false)->change();
 
             $table->dropUnique('files_public_link_unique');
         });
