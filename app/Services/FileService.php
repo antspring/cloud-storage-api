@@ -7,7 +7,7 @@ use App\Models\File;
 use App\Models\Folder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use function PHPUnit\Framework\isEmpty;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class FileService
 {
@@ -22,6 +22,8 @@ class FileService
     public function create(Request $request): void
     {
         $folder = $this->findFolder($request);
+
+        $this->checkForUnique($folder, $request->file('file')->getClientOriginalName());
 
         $filePath = $request->file('file')->storeAs($folder->name, $request->file('file')->getClientOriginalName());
 
@@ -45,6 +47,12 @@ class FileService
         return Storage::disk('local')->path($path);
     }
 
+    /**
+     * Delete file
+
+     * @param Request $request
+     * @return void
+     */
     public function delete(Request $request): void
     {
         $folder = $this->findFolder($request);
@@ -73,6 +81,22 @@ class FileService
 
             return Folder::query()->where('name', $request->folder_name)->firstOrFail();
         }
+    }
+
+    /**
+     * Check for uniqueness
+
+     * @param Folder $folder
+     * @param $fileName
+     * @return void
+     */
+    public function checkForUnique(Folder $folder, $fileName): void
+    {
+        $folder->files()->each(function ($item) use ($fileName) {
+            if ($item->name === $fileName){
+                throw new HttpException(400, 'File already exists');
+            }
+        });
     }
 
     /**
