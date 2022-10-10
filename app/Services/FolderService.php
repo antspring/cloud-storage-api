@@ -11,6 +11,13 @@ class FolderService
 {
     public function __construct(private FolderInterface $repository){}
 
+    /**
+     * Create Model folder and make directory
+     *
+     * @param string $path
+     * @param int $userId
+     * @return void
+     */
     public function create(string $path, int $userId): void
     {
         $folderData = [
@@ -23,6 +30,13 @@ class FolderService
         Storage::makeDirectory($path);
     }
 
+    /**
+     * Compose folder name
+
+     * @param string $folderName
+     * @param string $userName
+     * @return string
+     */
     public static function configurationFolderName(string $folderName, string $userName): string
     {
         return $userName . '/' . $folderName;

@@ -10,6 +10,12 @@ class FolderController extends Controller
 {
     public function __construct(private FolderService $service){}
 
+    /**
+     * Create Folder action
+
+     * @param CreateFolderRequest $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function createFolder(CreateFolderRequest $request)
     {
         $request['folder_name'] = $this->service->configurationFolderName($request->folder_name, $request->user()->name);

@@ -9,6 +9,12 @@ class AuthService
 {
     public function __construct(private UserInterface $repository, private FolderService $folderService){}
 
+    /**
+     * Registration user
+
+     * @param array $userData
+     * @return void
+     */
     public function register(array $userData): void
     {
         $user = $this->repository->create($userData);
@@ -18,6 +24,12 @@ class AuthService
         Auth::login($user);
     }
 
+    /**
+     * Log in user
+
+     * @param array $userData
+     * @return void
+     */
     public function login(array $userData): void
     {
         $user = $this->repository->find($userData);
@@ -25,6 +37,11 @@ class AuthService
         Auth::login($user);
     }
 
+    /**
+     * Log out user
+
+     * @return void
+     */
     public function logout(): void
     {
         Auth::logout();
