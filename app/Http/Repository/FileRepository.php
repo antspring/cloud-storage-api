@@ -39,4 +39,16 @@ class FileRepository implements Interfaces\FileInterface
     {
         $file->update(['name' => $name]);
     }
+
+    /**
+     * Set public name
+
+     * @param File $file
+     * @param string $publicLink
+     * @return void
+     */
+    public function setPublicLink(File $file, string $publicLink): void
+    {
+        $file->update(['public_link' => $publicLink]);
+    }
 }

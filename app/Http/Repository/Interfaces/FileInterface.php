@@ -17,4 +17,11 @@ interface FileInterface
      * @return void
      */
     public function delete(File $file): void;
+
+    /**
+     * @param File $file
+     * @param string $publicLink
+     * @return void
+     */
+    public function setPublicLink(File $file, string $publicLink): void;
 }

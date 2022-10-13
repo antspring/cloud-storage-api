@@ -5,7 +5,9 @@ namespace App\Services;
 use App\Http\Repository\Interfaces\FileInterface;
 use App\Services\Traits\FileServiceHelpers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class FileService
@@ -98,5 +100,24 @@ class FileService
         Storage::move($path, $folder->name . '/' . $request->new_file_name);
 
         $this->repository->update($file, $request->new_file_name);
+    }
+
+    /**
+     *
+
+     * @param Request $request
+     * @return string
+     */
+    public function publish(Request $request): string
+    {
+        $folder = $this->findFolder($request);
+
+        $file = $folder->findFile($request->file_name);
+
+         $publicLink = Str::random();
+
+         $this->repository->setPublicLink($file, $publicLink);
+
+         return $publicLink;
     }
 }

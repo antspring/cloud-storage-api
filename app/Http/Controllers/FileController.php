@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateFileRequest;
 use App\Http\Requests\DeleteFileRequest;
 use App\Http\Requests\DownloadFileRequest;
+use App\Http\Requests\PublishFileRequest;
 use App\Http\Requests\RenameFileRequest;
 use App\Http\Resources\FolderResource;
 use App\Services\FileService;
@@ -75,5 +76,18 @@ class FileController extends Controller
         $this->service->rename($request);
 
         return response(['message' => 'File renamed']);
+    }
+
+    /**
+     * Publish file and get random string
+
+     * @param PublishFileRequest $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function publishFile(PublishFileRequest $request)
+    {
+        $publicLink = $this->service->publish($request);
+
+        return response(['message' => 'File published', 'public link' => $publicLink]);
     }
 }
