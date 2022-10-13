@@ -3,9 +3,7 @@
 namespace App\Services;
 
 use App\Http\Repository\Interfaces\FolderInterface;
-use Exception;
 use Illuminate\Support\Facades\Storage;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class FolderService
 {

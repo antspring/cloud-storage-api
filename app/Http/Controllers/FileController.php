@@ -7,12 +7,8 @@ use App\Http\Requests\DeleteFileRequest;
 use App\Http\Requests\DownloadFileRequest;
 use App\Http\Requests\RenameFileRequest;
 use App\Http\Resources\FolderResource;
-use App\Models\Folder;
 use App\Services\FileService;
-use App\Services\FolderService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
