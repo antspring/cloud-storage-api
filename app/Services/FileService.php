@@ -101,7 +101,7 @@ class FileService
 
         Storage::move($path, $folder->name . '/' . $request->new_file_name);
 
-        $this->repository->update($file, $request->new_file_name);
+        $this->repository->updateFileName($file, $request->new_file_name);
     }
 
     /**

@@ -29,19 +29,19 @@ class FileRepository implements Interfaces\FileInterface
     }
 
     /**
-     * Update File
+     * Update File name
 
      * @param File $file
      * @param string $name
      * @return void
      */
-    public function update(File $file, string $name): void
+    public function updateFileName(File $file, string $name): void
     {
         $file->update(['name' => $name]);
     }
 
     /**
-     * Set public name
+     * Set public link
 
      * @param File $file
      * @param string $publicLink

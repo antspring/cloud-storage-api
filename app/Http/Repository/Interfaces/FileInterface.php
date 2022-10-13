@@ -20,6 +20,13 @@ interface FileInterface
 
     /**
      * @param File $file
+     * @param string $name
+     * @return void
+     */
+    public function updateFileName(File $file, string $name): void;
+
+    /**
+     * @param File $file
      * @param string $publicLink
      * @return void
      */
