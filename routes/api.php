@@ -29,7 +29,7 @@ Route::middleware('auth:sanctum')->group(function (){
 
     Route::get('/rename-file', [FileController::class, 'renameFile']);
 
-    Route::get('/publish-file', [FileController::class, 'publishFile'])->name('publish_file');
+    Route::get('/publish-file', [FileController::class, 'publishFile']);
 
-    Route::get('/public-file/{public_link)}', [FileController::class, 'publicFile']);
+    Route::get('/public-file/{file:public_link}', [FileController::class, 'getPublicFile']);
 });

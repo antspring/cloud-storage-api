@@ -8,8 +8,10 @@ use App\Http\Requests\DownloadFileRequest;
 use App\Http\Requests\PublishFileRequest;
 use App\Http\Requests\RenameFileRequest;
 use App\Http\Resources\FolderResource;
+use App\Models\File;
 use App\Services\FileService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class FileController extends Controller
 {
@@ -89,5 +91,18 @@ class FileController extends Controller
         $publicLink = $this->service->publish($request);
 
         return response(['message' => 'File published', 'public link' => $publicLink]);
+    }
+
+    /**
+     * Download public file
+
+     * @param File $file
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     */
+    public function getPublicFile(File $file)
+    {
+        $path = $this->service->getPublic($file);
+
+        return response()->download($path, basename($path));
     }
 }

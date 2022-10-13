@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Http\Repository\Interfaces\FileInterface;
+use App\Models\File;
+use App\Models\Folder;
 use App\Services\Traits\FileServiceHelpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -103,7 +105,7 @@ class FileService
     }
 
     /**
-     *
+     * Publishing file
 
      * @param Request $request
      * @return string
@@ -119,5 +121,18 @@ class FileService
          $this->repository->setPublicLink($file, $publicLink);
 
          return $publicLink;
+    }
+
+    /**
+     * Finding file path
+
+     * @param File $file
+     * @return string
+     */
+    public function getPublic(File $file): string
+    {
+        $path = FolderService::configurationFolderName($file->name, $file->folder->name);
+
+        return Storage::disk('local')->path($path);
     }
 }

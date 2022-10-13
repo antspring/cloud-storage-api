@@ -14,4 +14,14 @@ class File extends Model
         'public_link',
         'folder_id'
     ];
+
+    /**
+     * Get folder
+
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function folder()
+    {
+        return $this->belongsTo(Folder::class);
+    }
 }
