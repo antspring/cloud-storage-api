@@ -3,8 +3,6 @@
 namespace App\Services;
 
 use App\Http\Repository\Interfaces\FileInterface;
-use App\Models\File;
-use App\Models\Folder;
 use App\Services\Traits\FileServiceHelpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,18 +15,28 @@ class FileService
     public function __construct(private FileInterface $repository){}
 
     /**
-     * Save file
+     * Save file and check for max size
 
      * @param Request $request
      * @return void
      */
     public function create(Request $request): void
     {
+        $size = $request->file('file')->getSize() + $request->user()->current_files_size;
+
+        if($size >= $request->user()->max_files_size){
+            throw new HttpException(400, 'Disk space has run out');
+        }
+
         $folder = $this->findFolder($request);
 
         $this->checkForUnique($folder, $request->file('file')->getClientOriginalName());
 
         $filePath = $request->file('file')->storeAs($folder->name, $request->file('file')->getClientOriginalName());
+
+        $request->user()->current_files_size += $request->file('file')->getSize();
+
+        $request->user()->save();
 
         $this->repository->create($this->configurationFileData(basename($filePath), $folder->id));
     }
@@ -51,7 +59,7 @@ class FileService
     }
 
     /**
-     * Delete file
+     * Delete file and counting size of all files
 
      * @param Request $request
      * @return void
@@ -63,6 +71,10 @@ class FileService
         $file = $folder->findFile($request->file_name);
 
         $path = FolderService::configurationFolderName($file->name, $folder->name);
+
+        $request->user()->current_files_size -= Storage::disk('local')->size($path);
+
+        $request->user()->save();
 
         Storage::disk('local')->delete($path);
 
