@@ -13,7 +13,8 @@ class File extends Model
         'name',
         'public_link',
         'folder_id',
-        'size'
+        'size',
+        'expiration_date'
     ];
 
     /**

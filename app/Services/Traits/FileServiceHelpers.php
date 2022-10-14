@@ -47,14 +47,17 @@ trait FileServiceHelpers
 
      * @param string $name
      * @param int $id
+     * @param int $size
+     * @param string|null $expirationDate
      * @return array
      */
-    public function configurationFileData(string $name, int $id, int $size): array
+    public function configurationFileData(string $name, int $id, int $size, ?string $expirationDate): array
     {
         return [
             'name' => $name,
             'folder_id' => $id,
-            'size' => $size
+            'size' => $size,
+            'expiration_date' => $expirationDate
         ];
     }
 }

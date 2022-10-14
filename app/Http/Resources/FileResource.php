@@ -16,7 +16,8 @@ class FileResource extends JsonResource
     {
         return [
             'name' => $this->name,
-            'public_link' => $this->public_link
+            'public_link' => $this->public_link,
+            'expiration_date' => $this->expiration_date
         ];
     }
 }

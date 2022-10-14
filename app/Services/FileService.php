@@ -41,9 +41,11 @@ class FileService
         $request->user()->save();
 
         $this->repository->create(
-            $this->configurationFileData(basename($filePath),
-            $folder->id,
-            $request->file('file')->getSize()
+            $this->configurationFileData(
+                basename($filePath),
+                $folder->id,
+                $request->file('file')->getSize(),
+                $request->expiration_date ?: null
         ));
     }
 
