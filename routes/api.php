@@ -25,9 +25,9 @@ Route::middleware('auth:sanctum')->group(function (){
 
     Route::get('/download-file', [FileController::class, 'downloadFile']);
 
-    Route::get('/delete-file', [FileController::class, 'deleteFile']);
+    Route::delete('/delete-file', [FileController::class, 'deleteFile']);
 
-    Route::get('/rename-file', [FileController::class, 'renameFile']);
+    Route::patch('/rename-file', [FileController::class, 'renameFile']);
 
     Route::get('/publish-file', [FileController::class, 'publishFile']);
 
