@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Http\Repository\Interfaces\FolderInterface;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class FolderService
@@ -30,6 +29,12 @@ class FolderService
         Storage::makeDirectory($path);
     }
 
+    /**
+     * Find folder and count size files
+
+     * @param Request $request
+     * @return int
+     */
     public function scan(Request $request): int
     {
         $folder = $this->repository->findByName($request->folder_name);

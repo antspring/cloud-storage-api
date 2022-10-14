@@ -10,5 +10,9 @@ interface FolderInterface
      */
     public function create(array $folderData): void;
 
+    /**
+     * @param string $name
+     * @return mixed
+     */
     public function findByName(string $name);
 }

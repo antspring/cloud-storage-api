@@ -4,10 +4,8 @@ namespace App\Services;
 
 use App\Http\Repository\Interfaces\FileInterface;
 use App\Models\File;
-use App\Models\Folder;
 use App\Services\Traits\FileServiceHelpers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Symfony\Component\HttpKernel\Exception\HttpException;

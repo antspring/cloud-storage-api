@@ -28,6 +28,12 @@ class FolderController extends Controller
         return response(['message' => 'Folder created']);
     }
 
+    /**
+     * Scan folder and return size files
+
+     * @param ScanFolderRequest $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function scanFolder(ScanFolderRequest $request)
     {
         $request['folder_name'] = $this->service->configurationFolderName($request->folder_name, $request->user()->name);
