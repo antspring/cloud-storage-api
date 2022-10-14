@@ -16,4 +16,9 @@ class FolderRepository implements Interfaces\FolderInterface
     {
         Folder::create($folderData);
     }
+
+    public function findByName(string $name)
+    {
+        return Folder::query()->where('name', $name)->first();
+    }
 }

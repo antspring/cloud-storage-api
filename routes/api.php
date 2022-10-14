@@ -32,4 +32,6 @@ Route::middleware('auth:sanctum')->group(function (){
     Route::get('/publish-file', [FileController::class, 'publishFile']);
 
     Route::get('/public-file/{file:public_link}', [FileController::class, 'getPublicFile']);
+
+    Route::get('/scan-folder', [FolderController::class, 'scanFolder']);
 });

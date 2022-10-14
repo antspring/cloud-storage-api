@@ -49,11 +49,12 @@ trait FileServiceHelpers
      * @param int $id
      * @return array
      */
-    public function configurationFileData(string $name, int $id): array
+    public function configurationFileData(string $name, int $id, int $size): array
     {
         return [
             'name' => $name,
-            'folder_id' => $id
+            'folder_id' => $id,
+            'size' => $size
         ];
     }
 }

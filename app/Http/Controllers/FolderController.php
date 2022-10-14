@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\CreateFolderRequest;
+use App\Http\Requests\ScanFolderRequest;
 use App\Services\FolderService;
 
 class FolderController extends Controller
@@ -25,5 +26,16 @@ class FolderController extends Controller
         $this->service->create($request->folder_name, $request->user()->id);
 
         return response(['message' => 'Folder created']);
+    }
+
+    public function scanFolder(ScanFolderRequest $request)
+    {
+        $request['folder_name'] = $this->service->configurationFolderName($request->folder_name, $request->user()->name);
+
+        $request->validate(['folder_name' => 'exists:folders,name']);
+
+        $size = $this->service->scan($request);
+
+        return response(['message' => 'Size is ' . $size]);
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Http\Repository\Interfaces\FolderInterface;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class FolderService
@@ -26,6 +28,19 @@ class FolderService
         $this->repository->create($folderData);
 
         Storage::makeDirectory($path);
+    }
+
+    public function scan(Request $request): int
+    {
+        $folder = $this->repository->findByName($request->folder_name);
+
+        $size = 0;
+
+        $folder->files->each(function ($item) use (&$size){
+            $size += $item->size;
+        });
+
+        return $size;
     }
 
     /**

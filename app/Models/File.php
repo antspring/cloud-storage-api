@@ -12,7 +12,8 @@ class File extends Model
     protected $fillable = [
         'name',
         'public_link',
-        'folder_id'
+        'folder_id',
+        'size'
     ];
 
     /**

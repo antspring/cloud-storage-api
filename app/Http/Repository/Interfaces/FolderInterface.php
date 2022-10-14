@@ -9,4 +9,6 @@ interface FolderInterface
      * @return void
      */
     public function create(array $folderData): void;
+
+    public function findByName(string $name);
 }
