@@ -26,6 +26,7 @@ cp .env.example .env
 
 Configure .env file
 
+* DB_HOST=mysql
 * DB_DATABASE
 * DB_USERNAME
 * DB_PASSWORD
@@ -37,16 +38,16 @@ Create alias for sail:
 alias sail='./vendor/bin/sail'
 ```
 
-Generate application key:
-
-```shell
-sail aritsan key:generate
-```
-
 Run docker container:
 
 ```shell
 sail up
+```
+
+Generate application key:
+
+```shell
+sail artisan key:generate
 ```
 
 Run database migrations:
