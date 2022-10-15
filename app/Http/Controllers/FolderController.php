@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateFolderRequest;
 use App\Http\Requests\ScanFolderRequest;
 use App\Services\FolderService;
+use Illuminate\Http\Request;
 
 class FolderController extends Controller
 {
@@ -43,5 +44,16 @@ class FolderController extends Controller
         $size = $this->service->scan($request);
 
         return response(['message' => 'Size is ' . $size]);
+    }
+
+    /**
+     * Get size all files on user disk
+
+     * @param Request $request
+     * @return mixed
+     */
+    public function diskSize(Request $request)
+    {
+        return $request->user()->current_files_size;
     }
 }

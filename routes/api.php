@@ -34,4 +34,6 @@ Route::middleware('auth:sanctum')->group(function (){
     Route::get('/public-file/{file:public_link}', [FileController::class, 'getPublicFile']);
 
     Route::get('/scan-folder', [FolderController::class, 'scanFolder']);
+
+    Route::get('/disk-size', [FolderController::class, 'diskSize']);
 });
