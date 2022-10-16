@@ -1,0 +1,651 @@
+{
+	"info": {
+		"_postman_id": "6f4fce3d-a294-4b36-87f0-2c4e0bed0bec",
+		"name": "cloud-storage-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19340096"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1/sanctum/csrf-cookie",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1/sanctum/csrf-cookie",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"sanctum",
+						"csrf-cookie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/register",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "eyJpdiI6IlhTdDVuUlZjOXg0L2FTTEpmemY3N0E9PSIsInZhbHVlIjoiZHoyUmQ2ck02TGhrMTAxa0RyTWU5RGpsd2xlNVFyVXNUZUJlUXdWWDF4MWp2NWhDNG11MTJuY25sQ3BPMW5PSkZlaWk1algyazM5NktnMng4VUdpaXMyTjZkbnM0dkJWczBOc1pWSlpZTEg2eEhBWDVNVHpJSUR4cGFNWnM1Tm8iLCJtYWMiOiJhMGQyYWVmNTJiZTdhOWNkOTQ3MWJiMDgzNmMyOTEyZmJiMmNiYzBjY2Q2YTRiNWM2MmZlZjI1NGQ3NGMwY2VkIiwidGFnIjoiIn0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@mail.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123123",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "123123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "eyJpdiI6IkYzTzdDSm0yU3NneGRhV0VLZHZCd1E9PSIsInZhbHVlIjoiR2FENTF6S0ZCdEtRb2l0UWVRTThFNENYUEh0S1JpL2ppQlVzMktZb2FTOXlhWG90bjBHTWVDbVBDM2xLZWZmQzYxL00vYWMxNENRTzZSQjlCMVJHSzlZU3ZuZWRjdHA5eFVIbFNwS3UzQkNXdVA4Ym9MdTRsMFljeFZzdXBvRlciLCJtYWMiOiIyNjllODFiMmM1ZTM5ODI4NWU1YjkzOTczMGZjNGQyMzY4MGY0YTkyOWNmMGQwNDRiZTI2YzdiYTkwYmQwNThkIiwidGFnIjoiIn0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test@mail.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123123",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "123123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/logout",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Refer",
+						"value": "127.0.0.1",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "eyJpdiI6IkYzTzdDSm0yU3NneGRhV0VLZHZCd1E9PSIsInZhbHVlIjoiR2FENTF6S0ZCdEtRb2l0UWVRTThFNENYUEh0S1JpL2ppQlVzMktZb2FTOXlhWG90bjBHTWVDbVBDM2xLZWZmQzYxL00vYWMxNENRTzZSQjlCMVJHSzlZU3ZuZWRjdHA5eFVIbFNwS3UzQkNXdVA4Ym9MdTRsMFljeFZzdXBvRlciLCJtYWMiOiIyNjllODFiMmM1ZTM5ODI4NWU1YjkzOTczMGZjNGQyMzY4MGY0YTkyOWNmMGQwNDRiZTI2YzdiYTkwYmQwNThkIiwidGFnIjoiIn0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/api/create-folder",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "eyJpdiI6ImlyS1I2SnFkcFlBT0xLUnBOSjdJZlE9PSIsInZhbHVlIjoiYUlTbjRJZE01YmhMNXBUTUVrcWhrdk0wMGJQWGFqTkN3SmFteG5UclpBSlc0R2dvNmZ2ak0rcEdXelUzYjdhbHJiMGpkSU91OVc3aVRZeUMyRWJEdGZUYWtSMWZSS1BzL2FVaklIejQrRzFqVlc0bHMwckwyS0k0d05YckZiTksiLCJtYWMiOiIwN2IxZDJkN2IxOTA2MzQyZTY5MzdmMDI4YjJkZjk3MWQ4ODNjYzJmN2NjMTYyOTkyMjQ0NWZmN2I0MmEwYjk5IiwidGFnIjoiIn0",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "127.0.0.1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "folder_name",
+							"value": "folder",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/create-folder",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"create-folder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/api/save-file",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "eyJpdiI6ImlyS1I2SnFkcFlBT0xLUnBOSjdJZlE9PSIsInZhbHVlIjoiYUlTbjRJZE01YmhMNXBUTUVrcWhrdk0wMGJQWGFqTkN3SmFteG5UclpBSlc0R2dvNmZ2ak0rcEdXelUzYjdhbHJiMGpkSU91OVc3aVRZeUMyRWJEdGZUYWtSMWZSS1BzL2FVaklIejQrRzFqVlc0bHMwckwyS0k0d05YckZiTksiLCJtYWMiOiIwN2IxZDJkN2IxOTA2MzQyZTY5MzdmMDI4YjJkZjk3MWQ4ODNjYzJmN2NjMTYyOTkyMjQ0NWZmN2I0MmEwYjk5IiwidGFnIjoiIn0",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "127.0.0.1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/photo.jpg"
+						},
+						{
+							"key": "folder_name",
+							"value": "folder",
+							"type": "text"
+						},
+						{
+							"key": "expiration_date",
+							"value": "2022-10-14",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/save-file",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"save-file"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/api/files-list",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "127.0.0.1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1/api/files-list",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"files-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/api/download-file?folder_name=name&file_name=QiFajixJHfyYISDVGqaEnd9bPw54pasoGb5XNafj.jpg",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "127.0.0.1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1/api/download-file?folder_name=folder&file_name=photo.jpg",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"download-file"
+					],
+					"query": [
+						{
+							"key": "folder_name",
+							"value": "folder"
+						},
+						{
+							"key": "file_name",
+							"value": "photo.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/api/delete-file",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "127.0.0.1",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "eyJpdiI6ImlyS1I2SnFkcFlBT0xLUnBOSjdJZlE9PSIsInZhbHVlIjoiYUlTbjRJZE01YmhMNXBUTUVrcWhrdk0wMGJQWGFqTkN3SmFteG5UclpBSlc0R2dvNmZ2ak0rcEdXelUzYjdhbHJiMGpkSU91OVc3aVRZeUMyRWJEdGZUYWtSMWZSS1BzL2FVaklIejQrRzFqVlc0bHMwckwyS0k0d05YckZiTksiLCJtYWMiOiIwN2IxZDJkN2IxOTA2MzQyZTY5MzdmMDI4YjJkZjk3MWQ4ODNjYzJmN2NjMTYyOTkyMjQ0NWZmN2I0MmEwYjk5IiwidGFnIjoiIn0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1/api/delete-file?folder_name=folder&file_name=photo.jpg",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"delete-file"
+					],
+					"query": [
+						{
+							"key": "folder_name",
+							"value": "folder"
+						},
+						{
+							"key": "file_name",
+							"value": "photo.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/api/rename-file",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "127.0.0.1",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "eyJpdiI6ImlyS1I2SnFkcFlBT0xLUnBOSjdJZlE9PSIsInZhbHVlIjoiYUlTbjRJZE01YmhMNXBUTUVrcWhrdk0wMGJQWGFqTkN3SmFteG5UclpBSlc0R2dvNmZ2ak0rcEdXelUzYjdhbHJiMGpkSU91OVc3aVRZeUMyRWJEdGZUYWtSMWZSS1BzL2FVaklIejQrRzFqVlc0bHMwckwyS0k0d05YckZiTksiLCJtYWMiOiIwN2IxZDJkN2IxOTA2MzQyZTY5MzdmMDI4YjJkZjk3MWQ4ODNjYzJmN2NjMTYyOTkyMjQ0NWZmN2I0MmEwYjk5IiwidGFnIjoiIn0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1/api/rename-file?folder_name=folder&file_name=photo.jpg&new_file_name=photo1.jpg",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"rename-file"
+					],
+					"query": [
+						{
+							"key": "folder_name",
+							"value": "folder"
+						},
+						{
+							"key": "file_name",
+							"value": "photo.jpg"
+						},
+						{
+							"key": "new_file_name",
+							"value": "photo1.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/api/publish-file?folder_name=test&file_name=photo.jpg",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "127.0.0.1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1/api/publish-file?folder_name=folder&file_name=photo1.jpg",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"publish-file"
+					],
+					"query": [
+						{
+							"key": "folder_name",
+							"value": "folder"
+						},
+						{
+							"key": "file_name",
+							"value": "photo1.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/api/public-file/l8tdyS8Lk11BIbR7",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "127.0.0.1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1/api/public-file/1Yii0DnRiVHdd5nP",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"public-file",
+						"1Yii0DnRiVHdd5nP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/api/scan-folder?folder_name=test",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "127.0.0.1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1/api/scan-folder?folder_name=folder",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"scan-folder"
+					],
+					"query": [
+						{
+							"key": "folder_name",
+							"value": "folder"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1/api/disk-size",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "127.0.0.1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1/api/disk-size",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"disk-size"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
