@@ -12,10 +12,15 @@ Clone repository from GitHub:
  cd cloud-storage-api
 ```
 
-Install PHP dependencies:
+Installing Composer Dependencies:
 
 ```shell
-composer install
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/var/www/html \
+    -w /var/www/html \
+    laravelsail/php81-composer:latest \
+    composer install --ignore-platform-reqs
 ```
 
 Copy .env.example
@@ -41,7 +46,7 @@ alias sail='./vendor/bin/sail'
 Run docker container:
 
 ```shell
-sail up
+sail up -d
 ```
 
 Generate application key:
